@@ -1,5 +1,5 @@
-const getUser = async (userId) => {
-  return fetch(`http://localhost:8080/user/${userId}`, {
+const getUser = async (path) => {
+  return fetch(`http://localhost:8080/${path}`, {
     method: "GET",
     headers: {
       "Content-type": "application/json",

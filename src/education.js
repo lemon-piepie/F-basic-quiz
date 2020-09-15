@@ -1,5 +1,5 @@
-const getEducation = async (userId) => {
-  return fetch(`http://localhost:8080/user/${userId}/educations`, {
+const getEducation = async (path) => {
+  return fetch(`http://localhost:8080/${path}/educations`, {
     method: "GET",
     headers: {
       "Content-type": "application/json",
@@ -7,8 +7,8 @@ const getEducation = async (userId) => {
   });
 };
 
-const addEducation = async (data) => {
-  return fetch(`http://localhost:8080/user/${userId}/educations`, {
+const addEducation = async (data, path) => {
+  return fetch(`http://localhost:8080/${path}/educations`, {
     method: "POST",
     body: JSON.stringify(data),
     headers: {

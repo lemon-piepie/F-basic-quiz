@@ -2,6 +2,8 @@ import "./style/index.scss";
 import { getEducation } from "./education";
 import { getUser } from "./user";
 
+const test = window.location.pathname;
+
 const showUserResume = (userName, userAge) => {
   document.getElementById(
     "userIntro"
@@ -13,7 +15,7 @@ const showUserDescription = (userDes) => {
 const showUserImg = (userAvatar) => {
   document.getElementById("photo").setAttribute("src", `${userAvatar}`);
 };
-getUser(1)
+getUser(test)
   .then((response) => response.json())
   .then((data) => {
     const userName = data.name;
@@ -25,7 +27,7 @@ getUser(1)
     showUserImg(userAvatar);
   });
 
-getEducation(1)
+getEducation(test)
   .then((response) => response.json())
   .then((data) => {
     for (let i = 0; i < data.length; i++) {
