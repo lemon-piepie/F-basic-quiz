@@ -1,0 +1,21 @@
+.header {
+  @extend .flexColumn;
+  background-color: $white;
+  width: 80%;
+  margin-top: 8%;
+
+  img {
+    display: block;
+    height: $image-size;
+    width: $image-size;
+    border-radius: 50%;
+    margin-top: -50px;
+  }
+
+  h2 {
+    padding-bottom: $border-padding-y;
+    padding-left: $border-padding-x;
+    padding-right: $border-padding-x;
+    border-bottom: $border-width solid $body-bg;
+  }
+}

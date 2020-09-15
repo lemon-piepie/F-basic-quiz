@@ -5,11 +5,18 @@ html {
   font-size: 13px;
 }
 
+.flexColumn {
+  @include flex(column);
+  justify-content: center;
+  align-items: center;
+}
+
 body {
   font-family: $font-family-base;
   color: $color-base;
   background-color: $body-bg;
   line-height: $line-height-base;
+  @extend .flexColumn;
 }
 
 * {
