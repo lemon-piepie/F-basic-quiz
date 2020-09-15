@@ -4,10 +4,21 @@ import { getUser } from "./user";
 
 const test = window.location.pathname;
 
+const educationOnly = (path) => {
+  return path.indexOf("education") === -1;
+};
+
 const showUserResume = (userName, userAge) => {
-  document.getElementById(
-    "userIntro"
-  ).innerHTML = `MY NAME IS ${userName} ${userAge}YO AND THIS IS MY RESUME/CV`;
+  if (userName !== undefined && userAge !== undefined) {
+    document.getElementById(
+      "userIntro"
+    ).innerHTML = `MY NAME IS ${userName} ${userAge}YO AND THIS IS MY RESUME/CV`;
+  } else {
+    document.body.removeChild(document.getElementById("header"));
+    document
+      .getElementById("main")
+      .removeChild(document.getElementById("about"));
+  }
 };
 const showUserDescription = (userDes) => {
   document.getElementById("userDescription").innerHTML = `${userDes}`;
@@ -27,11 +38,10 @@ getUser(test)
     showUserImg(userAvatar);
   });
 
-getEducation(test)
+getEducation(educationOnly(test) ? `${test}/educations` : test)
   .then((response) => response.json())
   .then((data) => {
     for (let i = 0; i < data.length; i++) {
-      console.log(data[i]);
       const dom = document.createElement("section");
       dom.className = "education";
       dom.innerHTML = `<h5>${data[i].year}</h5>
