@@ -24,3 +24,19 @@ getUser(1)
     showUserDescription(userDes);
     showUserImg(userAvatar);
   });
+
+getEducation(1)
+  .then((response) => response.json())
+  .then((data) => {
+    for (let i = 0; i < data.length; i++) {
+      console.log(data[i]);
+      const dom = document.createElement("section");
+      dom.className = "education";
+      dom.innerHTML = `<h5>${data[i].year}</h5>
+      <article>
+        <h4>${data[i].title}</h4>
+        <p>${data[i].description}</p>
+      </article>`;
+      document.getElementById("education-topic").appendChild(dom);
+    }
+  });

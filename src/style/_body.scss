@@ -2,6 +2,8 @@
   @extend .flexColumn;
   background-color: $white;
   width: 80%;
+  padding-bottom: 50px;
+  margin-bottom: 50px;
 
   h3 {
     color: $primary-color;
@@ -10,7 +12,7 @@
     width: 90%;
   }
 
-  .education {
+  .education-topic {
     width: 90%;
     section {
       @include flex(row);
