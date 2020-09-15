@@ -1,16 +1,13 @@
-function getEducation(userId) {
+const getEducation = async (userId) => {
   return fetch(`http://localhost:8080/user/${userId}/educations`, {
     method: "GET",
-  })
-    .then((response) => {
-      return response.text();
-    })
-    .catch((error) => {
-      console.log(error.message);
-    });
-}
+    headers: {
+      "Content-type": "application/json",
+    },
+  });
+};
 
-function addEducation() {
+const addEducation = async (data) => {
   return fetch(`http://localhost:8080/user/${userId}/educations`, {
     method: "POST",
     body: JSON.stringify(data),
@@ -18,12 +15,12 @@ function addEducation() {
       "Content-type": "application/json",
     },
   })
-    .then((response) => {
-      return response.text();
+    .then((result) => {
+      return result.text();
     })
     .catch((error) => {
       console.log(error.message);
     });
-}
+};
 
 export { getEducation, addEducation };

@@ -1,16 +1,13 @@
-function getUser(userId) {
+const getUser = async (userId) => {
   return fetch(`http://localhost:8080/user/${userId}`, {
     method: "GET",
-  })
-    .then((response) => {
-      return response.text();
-    })
-    .catch((error) => {
-      console.log(error.message);
-    });
-}
+    headers: {
+      "Content-type": "application/json",
+    },
+  });
+};
 
-function addUser() {
+const addUser = async (data) => {
   return fetch("http://localhost:8080/users", {
     method: "POST",
     body: JSON.stringify(data),
@@ -18,12 +15,12 @@ function addUser() {
       "Content-type": "application/json",
     },
   })
-    .then((response) => {
-      return response.text();
+    .then((result) => {
+      return result.text();
     })
     .catch((error) => {
       console.log(error.message);
     });
-}
+};
 
 export { getUser, addUser };
