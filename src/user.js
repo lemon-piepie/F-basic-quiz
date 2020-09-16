@@ -1,4 +1,5 @@
 const getUser = async (path) => {
+  // TODO feedback: URL不正确，path中多了"/"
   return fetch(`http://localhost:8080/${path}`, {
     method: "GET",
     headers: {

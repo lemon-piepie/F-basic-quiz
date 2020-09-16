@@ -5,6 +5,7 @@ html {
   font-size: 13px;
 }
 
+// TODO feedback: flexColumn 命名不表意
 .flexColumn {
   @include flex(column);
   justify-content: center;
